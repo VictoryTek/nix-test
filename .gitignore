@@ -1,0 +1,22 @@
+# Nix/NixOS specific
+result
+result-*
+
+# Hardware config (user-specific, should be generated per-machine)
+# Uncomment if you don't want to share your hardware config:
+# hardware-configuration.nix
+
+# Backup files
+*.bak
+*~
+.#*
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
