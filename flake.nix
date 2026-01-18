@@ -5,7 +5,7 @@
   # It locks dependencies, provides reproducible builds, and can output
   # multiple things (NixOS configs, packages, dev shells, etc.)
   
-  description = "Vex HTPC - A custom NixOS configuration with GNOME";
+  description = "Nimda HTPC - A custom NixOS configuration with GNOME";
 
   # INPUTS: External dependencies for your flake
   # These are like the "dependencies" in package.json
@@ -44,11 +44,7 @@
       
       # modules: A list of configuration files and modules to include
       # Think of these as building blocks that get merged together
-      modules = [
-        # Your main hardware configuration (auto-generated during install)
-        # This would be created by nixos-generate-config
-        ./hardware-configuration.nix
-        
+      modules = [        
         # Your main system configuration (what we'll create next)
         ./configuration.nix
         

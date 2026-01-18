@@ -10,8 +10,8 @@
   home.stateVersion = "24.11";
   
   # Username and home directory
-  home.username = "vex";
-  home.homeDirectory = "/home/vex";
+  home.username = "nimda";
+  home.homeDirectory = "/home/nimda";
 
 
   # USER PACKAGES
