@@ -32,7 +32,7 @@
   # -----------------
   
   # Hostname - this identifies your machine on the network
-  networking.hostName = "nimda-htpc";
+  networking.hostName = "nix-test";
   
   # Timezone
   time.timeZone = "America/Chicago"; # Change to your timezone

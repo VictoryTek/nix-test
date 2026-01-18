@@ -4,13 +4,13 @@
 
 ```bash
 # Apply configuration (most common command)
-sudo nixos-rebuild switch --flake .#vex-htpc
+sudo nixos-rebuild switch --flake .#nix-test
 
 # Test configuration without switching boot default
-sudo nixos-rebuild test --flake .#vex-htpc
+sudo nixos-rebuild test --flake .#nix-test
 
 # Build but don't activate
-sudo nixos-rebuild build --flake .#vex-htpc
+sudo nixos-rebuild build --flake .#nix-test
 
 # Update flake.lock (get newest versions)
 nix flake update
@@ -23,11 +23,11 @@ nix flake lock --update-input nixpkgs
 
 ```bash
 # Apply config directly from GitHub
-sudo nixos-rebuild switch --flake github:yourusername/vex-htpc-nix#vex-htpc
+sudo nixos-rebuild switch --flake github:victorytek/nix-test#nix-test
 
 # Update and apply
-nix flake update github:yourusername/vex-htpc-nix
-sudo nixos-rebuild switch --flake github:yourusername/vex-htpc-nix#vex-htpc
+nix flake update github:victorytek/nix-test
+sudo nixos-rebuild switch --flake github:victorytek/nix-test#nix-test
 ```
 
 ## Managing Generations
@@ -69,7 +69,7 @@ nix run nixpkgs#firefox
 nix flake check
 
 # Show verbose build output
-sudo nixos-rebuild switch --flake .#vex-htpc --show-trace
+sudo nixos-rebuild switch --flake .#nix-test --show-trace
 
 # See what's in your current system
 nix-store -q --references /run/current-system
@@ -82,7 +82,7 @@ nix store diff-closures /nix/var/nix/profiles/system-{52,53}-link
 
 ```bash
 # Switch home-manager config separately (if not using NixOS module)
-home-manager switch --flake .#vex
+home-manager switch --flake .#nimda
 
 # List home-manager generations
 home-manager generations
@@ -114,7 +114,7 @@ git add .
 git commit -m "Initial NixOS configuration"
 
 # Push to GitHub
-git remote add origin https://github.com/yourusername/vex-htpc-nix.git
+git remote add origin https://github.com/victorytek/nix-test.git
 git push -u origin main
 
 # After making changes
@@ -123,7 +123,7 @@ git commit -m "Update GNOME settings"
 git push
 
 # Test before pushing
-sudo nixos-rebuild test --flake .#vex-htpc
+sudo nixos-rebuild test --flake .#nix-test
 ```
 
 ## Useful Queries

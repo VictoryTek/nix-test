@@ -36,9 +36,9 @@
   outputs = { self, nixpkgs, home-manager, nix-flatpak, ... }: {
     
     # nixosConfigurations: Defines NixOS system configurations
-    # The name "vex-htpc" becomes your hostname
+    # The name "nix-test" becomes your hostname
     # You can have multiple configs in one flake (e.g., desktop, laptop, server)
-    nixosConfigurations.vex-htpc = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nix-test = nixpkgs.lib.nixosSystem {
       # System architecture - change to "aarch64-linux" for ARM
       system = "x86_64-linux";
       
