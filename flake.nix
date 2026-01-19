@@ -47,6 +47,7 @@
       modules = [        
         # Your main system configuration (what we'll create next)
         ./configuration.nix
+        ./hardware-configuration.nix
         
         # Include home-manager as a NixOS module
         # This lets you manage system AND user configs in one place
