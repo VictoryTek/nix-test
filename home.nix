@@ -129,21 +129,21 @@
     
     # Background Settings
     "org/gnome/desktop/background" = {
-      # You can set wallpapers here
-      # picture-uri = "file:///path/to/your/wallpaper-light.png";
-      # picture-uri-dark = "file:///path/to/your/wallpaper-dark.png";
+      # Wallpapers from vex-htpc (light theme)
+      picture-uri = "file://${config.home.homeDirectory}/.local/share/wallpapers/vex-bb-light.jxl";
+      picture-uri-dark = "file://${config.home.homeDirectory}/.local/share/wallpapers/vex-bb-dark.jxl";
     };
   };
 
 
   # STARSHIP PROMPT
   # ---------------
-  # Your shell prompt configuration
+  # Your shell prompt configuration (from vex-htpc)
   
   programs.starship = {
     enable = true;
-    # You can customize starship here or use a config file
-    # settings = { ... };
+    # Use custom starship config from vex-htpc
+    # The config file will be linked to ~/.config/starship.toml
   };
   
   # Enable starship for bash
@@ -171,11 +171,12 @@
   # Create directories and files in your home directory
   
   home.file = {
-    # Example: Create a custom wallpaper directory
-    # ".local/share/wallpapers/vex".source = ./wallpapers;
+    # Starship config file from vex-htpc
+    ".config/starship.toml".source = ./starship.toml;
     
-    # Example: Starship config file
-    # ".config/starship.toml".source = ./starship.toml;
+    # Wallpapers from vex-htpc
+    ".local/share/wallpapers/vex-bb-light.jxl".source = ./wallpapers/vex-bb-light.jxl;
+    ".local/share/wallpapers/vex-bb-dark.jxl".source = ./wallpapers/vex-bb-dark.jxl;
   };
 
 

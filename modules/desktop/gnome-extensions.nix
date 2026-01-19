@@ -1,5 +1,6 @@
 # GNOME Extensions Configuration
 # Similar to BlueBuild's gnome-extensions.yml module
+# Matches vex-htpc BlueBuild configuration exactly
 
 { config, pkgs, ... }:
 
@@ -9,17 +10,17 @@
     gnomeExtensions.extension-manager
     
     # Extensions matching your BlueBuild configuration
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.alphabetical-app-grid
+    gnomeExtensions.dash-to-dock                    # Dash to Dock
+    gnomeExtensions.alphabetical-app-grid           # Alphabetical App Grid
+    gnomeExtensions.gnome-40-ui-improvements        # Gnome 4x UI Improvements
+    # gnomeExtensions.quick-settings-tweaker        # Quick Settings Tweaks (commented in original)
+    gnomeExtensions.steal-my-focus                  # Steal my focus window
+    # gnomeExtensions.tailscale-qs                  # Tailscale QS (commented in original)
     
-    # Additional useful extensions
-    gnomeExtensions.caffeine
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.appindicator
-    
-    # You can add more from https://search.nixos.org/packages?channel=unstable&query=gnomeExtensions
-    # Examples:
-    # gnomeExtensions.quick-settings-tweaker
-    # gnomeExtensions.tailscale-qs
+    # Additional useful extensions from gschema override enabled-extensions list
+    gnomeExtensions.appindicator                    # App indicators support
+    gnomeExtensions.caffeine                        # Prevent screen dimming
+    gnomeExtensions.blur-my-shell                   # Blur effects
   ];
 }
+
