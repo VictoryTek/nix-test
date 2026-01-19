@@ -57,7 +57,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           # Point to your user configuration
-          home-manager.users.vex = import ./home.nix;
+          home-manager.users.nimda = import ./home.nix;
           
           # Optionally pass through inputs to home.nix
           home-manager.extraSpecialArgs = { inherit nix-flatpak; };
