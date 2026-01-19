@@ -12,11 +12,11 @@
   # IMPORTS
   # -------
   # Import hardware configuration and all modular components
+  # Hardware config: Uses repo placeholder or falls back to system's /etc/nixos/hardware-configuration.nix
   imports = [
-    # Use local hardware config if it exists in the repo, otherwise use system one
-    (if builtins.pathExists ./hardware-configuration.nix 
-     then ./hardware-configuration.nix 
-     else /etc/nixos/hardware-configuration.nix)
+    (if builtins.pathExists /etc/nixos/hardware-configuration.nix 
+     then /etc/nixos/hardware-configuration.nix 
+     else ./hardware-configuration.nix)
     
     # Desktop modules
     ./modules/desktop/gnome.nix
