@@ -23,11 +23,11 @@ nix flake lock --update-input nixpkgs
 
 ```bash
 # Apply config directly from GitHub
-sudo nixos-rebuild switch --flake github:victorytek/nix-test#nix-test
+sudo nixos-rebuild switch --flake github:victorytek/nix-test#nix-test --no-update-lock-file
 
 # Update and apply
 nix flake update github:victorytek/nix-test
-sudo nixos-rebuild switch --flake github:victorytek/nix-test#nix-test
+sudo nixos-rebuild switch --flake github:victorytek/nix-test#nix-test --no-update-lock-file
 ```
 
 ## Managing Generations
