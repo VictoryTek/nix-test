@@ -22,12 +22,26 @@ nix flake lock --update-input nixpkgs
 ## From GitHub
 
 ```bash
-# Apply config directly from GitHub
-sudo nixos-rebuild switch --flake github:victorytek/nix-test#nix-test --no-update-lock-file
+# Apply config directly from GitHub (uses system's /etc/nixos/hardware-configuration.nix)
+sudo nixos-rebuild switch --flake github:victorytek/nix-test#nix-test --no-write-lock-file
 
-# Update and apply
-nix flake update github:victorytek/nix-test
-sudo nixos-rebuild switch --flake github:victorytek/nix-test#nix-test --no-update-lock-file
+# Update flake inputs and apply
+nix flake update
+sudo nixos-rebuild switch --flake github:victorytek/nix-test#nix-test --no-write-lock-file
+```
+
+## Initial Setup from GitHub
+
+```bash
+# First time setup: Clone the repository
+git clone https://github.com/victorytek/nix-test.git
+cd nix-test
+
+# Generate hardware configuration for your machine (first time only)
+sudo nixos-generate-config --show-hardware-config > hardware-configuration.nix
+
+# Apply the configuration
+sudo nixos-rebuild switch --flake .#nix-test
 ```
 
 ## Managing Generations
