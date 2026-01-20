@@ -1,100 +1,48 @@
-# NixOS System Configuration
-# This file defines system-wide settings (like packages, services, users)
-# Similar to how BlueBuild recipes define system-level modifications
-#
-# MODULAR STRUCTURE:
-# This configuration now follows a modular approach similar to BlueBuild's
-# module-recipes. Each concern is separated into its own module file.
-
 { config, pkgs, ... }:
 
 {
-  # IMPORTS
-  # -------
-  # Import hardware configuration and all modular components
-  # Hardware config: Uses repo placeholder or falls back to system's /etc/nixos/hardware-configuration.nix
-  imports = [
-    (if builtins.pathExists /etc/nixos/hardware-configuration.nix 
-     then /etc/nixos/hardware-configuration.nix 
-     else ./hardware-configuration.nix)
-    
-    # Desktop modules
-    ./modules/desktop/gnome.nix
-    ./modules/desktop/gnome-extensions.nix
-    
-    # Package modules
-    ./modules/packages/system-packages.nix
-    ./modules/packages/flatpak.nix
-    
-    # System modules
-    ./modules/system/fonts.nix
-    ./modules/system/services.nix
-  ];
+  # Boot loader configuration
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-  # BASIC SYSTEM INFO
-  # -----------------
-  
-  # Hostname - this identifies your machine on the network
+  # Networking
   networking.hostName = "nix-test";
-  
-  # Timezone
-  time.timeZone = "America/Chicago"; # Change to your timezone
-  
-  # Internationalization
+  networking.networkmanager.enable = true;
+
+  # Time zone and locale
+  time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.UTF-8";
-
-
-  # BOOT AND KERNEL
-  # ---------------
   
-  # Use the latest Linux kernel (similar to Fedora's approach)
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  
-  # Bootloader configuration
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
   };
 
-  # USERS
-  # -----
-  # Define your user account
-  
+  # Enable flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Allow unfree packages (for proprietary software)
+  nixpkgs.config.allowUnfree = true;
+
+  # Define a user account
   users.users.nimda = {
     isNormalUser = true;
-    description = "Nimda User";
-    extraGroups = [ 
-      "networkmanager" 
-      "wheel"  # Allows sudo
-      "video"
-      "audio"
-    ];
-    # You can set an initial password or use password-less login
-    # initialPassword = "changeme";
+    description = "Nimda";
+    extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  # SYSTEM STATE VERSION
-  # --------------------
-  # This defines the NixOS release version you're using
-  # Don't change this unless you know what you're doing
-  # It's for maintaining compatibility across updates
-  
-  system.stateVersion = "24.11"; # Change to current NixOS version
-
-
-  # NIX SETTINGS
-  # ------------
-  # Enable flakes and the new nix command
-  
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
-  # Automatic garbage collection (cleanup old generations)
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-  
-  # Optimize store (deduplication)
-  nix.settings.auto-optimise-store = true;
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It's perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "24.11"; # Did you read the comment?
 }
