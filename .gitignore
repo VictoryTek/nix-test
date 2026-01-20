@@ -1,0 +1,9 @@
+# Analysis directory
+analysis/
+
+# NixOS build outputs
+result
+result-*
+
+# Flake lock can be committed, but some prefer to ignore it
+# flake.lock
