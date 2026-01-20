@@ -22,7 +22,6 @@
   # SOUND / AUDIO
   # -------------
   # Enable PipeWire (modern audio system, what Fedora uses)
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
