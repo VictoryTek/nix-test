@@ -12,8 +12,21 @@ sudo git clone https://github.com/VictoryTek/nix-test
 sudo cp -r nix-test/* .
 sudo rm -rf nix-test
 
-# 3. Build and switch to the flake configuration
+# 5. Build and switch to the flake configuration
 sudo nixos-rebuild switch --flake .#nix-test
+
+
+# 3. Remove old files and generate fresh hardware configuration
+sudo rm -rf /etc/nixos/*
+sudo nixos-generate-config --show-hardware-config > /etc/nixos/hardware-configuration.nix
+
+# 4. Clone the repository again
+cd /etc/nixos
+sudo git clone https://github.com/VictoryTek/nix-test
+sudo cp -r nix-test/* .
+sudo rm -rf nix-test
+
+# 5. Build and switch to the flake configuration
 ```
 
 ## Structure
