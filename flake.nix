@@ -37,21 +37,3 @@
     };
   };
 }
-        
-        # Include home-manager as a NixOS module
-        # This lets you manage system AND user configs in one place
-        home-manager.nixosModules.home-manager
-        {
-          # Configure home-manager
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          # Point to your user configuration
-          home-manager.users.nimda = import ./home.nix;
-          
-          # Optionally pass through inputs to home.nix
-          home-manager.extraSpecialArgs = { inherit nix-flatpak; };
-        }
-      ];
-    };
-  };
-}
