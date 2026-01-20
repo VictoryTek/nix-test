@@ -11,10 +11,10 @@
     
     # Extensions matching your BlueBuild configuration
     gnomeExtensions.dash-to-dock                    # Dash to Dock
-    gnomeExtensions.alphabetical-app-grid           # Alphabetical App Grid
-    gnomeExtensions.gnome-40-ui-improvements        # Gnome 4x UI Improvements
+    # gnomeExtensions.alphabetical-app-grid         # Alphabetical App Grid - not in nixpkgs
+    # gnomeExtensions.gnome-40-ui-improvements      # Gnome 4x UI Improvements - not in nixpkgs
     # gnomeExtensions.quick-settings-tweaker        # Quick Settings Tweaks (commented in original)
-    gnomeExtensions.steal-my-focus                  # Steal my focus window
+    # gnomeExtensions.steal-my-focus                # Steal my focus window - not in nixpkgs
     # gnomeExtensions.tailscale-qs                  # Tailscale QS (commented in original)
     
     # Additional useful extensions from gschema override enabled-extensions list
