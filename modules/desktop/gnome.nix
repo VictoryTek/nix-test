@@ -4,17 +4,13 @@
 { config, pkgs, ... }:
 
 {
-  # Enable the X11 windowing system and GNOME
-  services.xserver = {
-    enable = true;
-    
-    # GNOME Desktop Manager
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-    
-    # Keyboard layout
-    xkb.layout = "us";
-  };
+  # Enable the X11 windowing system
+  services.xserver.enable = true;
+  services.xserver.xkb.layout = "us";
+  
+  # GNOME Desktop Manager
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
   
   # Exclude some default GNOME apps (similar to your remove list)
   environment.gnome.excludePackages = with pkgs; [
@@ -37,9 +33,11 @@
 
   # Power Management
   # Prevent automatic suspension
-  services.logind = {
-    lidSwitch = "ignore";
-    lidSwitchDocked = "ignore";
-    lidSwitchExternalPower = "ignore";
+  services.logind.settings = {
+    Login = {
+      HandleLidSwitch = "ignore";
+      HandleLidSwitchDocked = "ignore";
+      HandleLidSwitchExternalPower = "ignore";
+    };
   };
 }

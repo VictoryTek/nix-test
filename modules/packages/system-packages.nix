@@ -28,7 +28,8 @@
     wl-clipboard     # Wayland clipboard utilities
     fastfetch        # System information tool (like neofetch)
     inxi             # System information
-    blivet          # Partition management (blivet-gui)
+    # blivet-gui is not available in nixpkgs, use gnome-disk-utility instead
+    gnome-disk-utility  # Disk management (GNOME Disks)
     cockpit          # Web-based system management
     pavucontrol      # PulseAudio/PipeWire volume control
     tailscale        # VPN mesh network
