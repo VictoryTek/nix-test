@@ -25,10 +25,10 @@
 
   # GNOME-specific utilities
   environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
+    gnome-tweaks
     dconf-editor
-    gnome.nautilus
-    gnome.sushi  # File previewer for Nautilus
+    nautilus
+    sushi  # File previewer for Nautilus
   ];
 
   # Power Management
