@@ -23,8 +23,9 @@
         
         # Modular configurations
         ./modules/system
-        ./modules/desktop
-        ./modules/packages
+        ./modules/desktop/gnome.nix
+        ./modules/packages/packages.nix
+        ./modules/packages/flatpaks.nix
         
         # Home Manager
         home-manager.nixosModules.home-manager

@@ -28,9 +28,6 @@
     gnomeExtensions.appindicator
   ];
 
-  # Enable Flatpak (optional)
-  services.flatpak.enable = true;
-
   # Fonts
   fonts.packages = with pkgs; [
     noto-fonts
