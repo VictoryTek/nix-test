@@ -6,8 +6,8 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # GNOME Extension Manager (similar to ExtensionManager flatpak)
-    gnomeExtensions.extension-manager
+    # GNOME Extension Manager (GUI app for managing extensions)
+    gnome-extension-manager
     
     # Extensions matching your BlueBuild configuration
     gnomeExtensions.dash-to-dock                    # Dash to Dock
