@@ -6,12 +6,12 @@
 {
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     liberation_ttf
     fira-code
     fira-code-symbols
-    nerdfonts  # For terminal icons with starship
+    nerd-fonts.fira-code  # For terminal icons with starship
     
     # Add more fonts as needed
     # font-awesome
