@@ -20,10 +20,10 @@
   
   home.packages = with pkgs; [
     # Text editor
-    gnome.gnome-text-editor
+    gnome-text-editor
     
     # Image viewer
-    gnome.loupe
+    loupe
     
     # System monitor alternative
     mission-center
